@@ -2,7 +2,7 @@ import { animate, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 // import { version } from '@package';
-import { SideMenuProvider } from '@providers/side-menu.provider';
+import { SideMenuProvider } from '@providers/side-menu/side-menu.provider';
 import { Subscription } from 'rxjs';
 // import { version } from '../../../../../../package.json';
 
