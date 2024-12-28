@@ -1,0 +1,19 @@
+
+  <div class="direct-menu-container">
+    <div class="menu-button" (click)="goToHome()" [class.selected]="isHomeSelected">
+      <div class="button-icon" [class]="!isHomeSelected ? 'i-house-grey' : 'i-house-white'"></div>
+    </div>
+    <div class="menu-button" (click)="goToStart()" [class.selected]="isFinanceSelected">
+      <div class="button-icon" [class]="!isFinanceSelected ? 'i-cash-grey' : 'i-cash-white'"></div>
+    </div>
+    <div class="menu-button" (click)="goToCalendar()" [class.selected]="isCalendarSelected">
+      <div class="button-icon" [class]="!isCalendarSelected ? 'i-calendar-grey' : 'i-calendar-white'"></div>
+    </div>
+    <div class="menu-button" (click)="goToSecurity()" [class.selected]="isSecuritySelected">
+      <div class="button-icon" [class]="!isSecuritySelected ? 'i-security-grey' : ' i-security-white'"></div>
+    </div>
+    <div class="menu-button" (click)="goToProfile()" [class.selected]="isProfileSelected">
+      <div class="button-icon" [class]="!isProfileSelected ? 'i-profile-grey' : ' i-profile-white'"></div>
+    </div>
+  </div>
+

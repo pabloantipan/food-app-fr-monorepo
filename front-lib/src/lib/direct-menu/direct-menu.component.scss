@@ -1,0 +1,63 @@
+@import '../../../theme/colors.scss';
+
+::ng-deep {
+  .fading {
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(100%);
+  }
+
+  .entering {
+    transition: transform 0.5s ease-in-out;
+    transform: translateY(0%);
+  }
+}
+
+:host {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 80px;
+}
+
+.direct-menu-container {
+  height: 80px;
+  display: flex;
+  background-color: color(purple, 500);
+  align-items: center;
+  justify-content: space-around;
+  // box-shadow: 0px 2px 8px rgba(96, 112, 129, 0.2),
+  //             0px 15px 32px rgba(96, 112, 129, 0.3);
+  // border-radius: 5px 5px 0px 0px;
+
+  transition: transform 1s ease-in-out;
+
+  .menu-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    font-family: var(--ion-font-family-bold);
+    font-size: 1.2rem;
+    color: color(grey, text_light);
+
+    &.selected {
+      color: color(white, pure);
+    }
+
+    .button-icon {
+      width: 24px;
+      height: 24px;
+      background-size: contain;
+      margin-bottom: 4px;
+    }
+
+    .i-document-text-outline-dark-gray {
+      @extend .i-document-text-outline-dark-gray;
+    }
+  }
+
+}
+
+

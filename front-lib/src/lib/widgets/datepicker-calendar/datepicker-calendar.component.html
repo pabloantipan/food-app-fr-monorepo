@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center align-items-center flex-column">
+  <div class="col-12 separar1 me-2 ms-2">
+    <div class="mt-2 col-12">
+      <div class="row d-flex align-items-center bd-highlight">
+        <div class="col-5 ms-4 d-flex justify-content-start bd-highlight">
+          <label class="subtitle-15-color">{{ infoDate }}</label>
+        </div>
+        <div class="col-5 ms-4 d-flex justify-content-end bd-highlight">
+          <button
+            class="btn btn-primary-calendar me-2"
+            (click)="navigateToPreviousMonth()"
+          >
+            <
+          </button>
+          <button
+            class="btn btn-primary-calendar"
+            (click)="navigateToNextMonth()"
+          >
+            >
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="d-flex justify-content-center align-items-center flex-column">
+      <!-- Calendario sin cabecera de navegación -->
+      <ngb-datepicker
+        #dp
+        class="px-3 pt-1 pb-3 no-header-padding"
+        [(ngModel)]="model"
+        (ngModelChange)="onDateSelected($event)"
+        (navigate)="onDateNavigate($event)"
+        [dayTemplate]="customDayTemplate"
+        [displayMonths]="1"
+      >
+      </ngb-datepicker>
+
+      <ng-template #customDayTemplate let-date="date" let-focused="focused">
+        <div
+          class="custom-day"
+          [class.special-day]="isSpecialDay(date)"
+          [class.focused]="focused"
+          [class.faded]="date.month !== currentMonth"
+          (click)="handleDayClick(date)"
+        >
+          {{ date.day }}
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

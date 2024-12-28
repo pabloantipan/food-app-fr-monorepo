@@ -1,0 +1,12 @@
+.version {
+  position: fixed;
+  bottom: 6px;
+  right: 0;
+
+  writing-mode: vertical-rl;
+  transform: rotate(-180deg);
+
+  color:rgba($color: #000000, $alpha: 0.75);
+  font-size: 0.5rem;
+  line-height: 0.6rem;
+}

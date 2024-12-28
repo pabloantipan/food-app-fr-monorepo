@@ -1,0 +1,20 @@
+:host {
+  .input-field {
+    .field-primary{
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 8px;
+      background-image: url(../../../../public/icons/input-search-grey.svg);
+      background-position: 12px 15px;
+      background-repeat: no-repeat;
+      padding: 12px 20px 12px 40px;
+
+      // font-family: Inter;
+      font-size: 14px;
+      font-weight: 700;
+      line-height: 16.94px;
+      text-align: left;
+    }
+  }
+
+}

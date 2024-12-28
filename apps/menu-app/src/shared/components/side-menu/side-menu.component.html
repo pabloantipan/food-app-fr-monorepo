@@ -1,0 +1,19 @@
+@if(isSideMenuOpen) {
+  <div class="side-menu-container" @openClose>
+    <button (click)="closeMenu()"> close</button>
+    John Doe
+    <div class="side-menu">
+      <div class="side-menu-item">
+        <a href="/home">Home</a>
+      </div>
+      <div class="side-menu-item">
+        <a href="/about">About</a>
+      </div>
+      <div class="side-menu-item">
+        <a href="/contact">Contact</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="shadow" (click)="closeMenu()"></div>
+}

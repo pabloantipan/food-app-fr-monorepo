@@ -1,0 +1,103 @@
+::ng-deep [ngbDatepickerDayView] {
+  width: 3rem !important;
+  height: 3rem !important;
+  line-height: 3rem !important;
+  text-align: center;
+  border-radius: 0.25rem;
+  background: transparent;
+}
+
+::ng-deep .ngb-dp-day,
+::ng-deep .ngb-dp-weekday,
+::ng-deep .ngb-dp-week-number {
+  width: 3rem !important; /* Cambia el ancho a 3rem */
+  height: 3rem !important; /* Cambia el alto a 3rem */
+  text-align: center; /* Asegura que el texto esté centrado */
+}
+
+::ng-deep ngb-datepicker .ngb-dp-header {
+  background-color: transparent !important;
+  border-bottom: none !important; /* Quita la línea inferior */
+  display: none;
+}
+
+::ng-deep ngb-datepicker .ngb-dp-weekdays {
+  background-color: transparent !important; /* Quita el fondo predeterminado */
+  border-bottom: none !important; /* Quita la línea inferior */
+}
+
+::ng-deep ngb-datepicker .ngb-dp-weekday {
+  color: black !important;
+}
+
+::ng-deep .ngb-dp-month-name {
+  display: none;
+}
+
+::ng-deep ngb-datepicker {
+  border: none !important; /* Elimina el borde */
+  border-radius: 0 !important; /* Quita el radio del borde */
+  display: block !important; /* Ajusta la visualización si es necesario */
+}
+
+::ng-deep .custom-day {
+  position: relative;
+  color: black; /* Color predeterminado */
+}
+
+::ng-deep .custom-day.faded {
+  color: lightgray !important; /* Color para días fuera del mes actual */
+}
+
+::ng-deep .custom-day.special-day::before {
+  content: '';
+  width: 6px; /* Tamaño del punto */
+  height: 6px; /* Tamaño del punto */
+  background-color: #703cc5; /* Color del punto */
+  border-radius: 50%;
+  position: absolute;
+  top: -4px; /* Posición del punto arriba del número */
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+/* Asegurar que los días seleccionados estén resaltados */
+::ng-deep .custom-day.focused,
+::ng-deep .custom-day.selected {
+  background-color: #9780bb !important; /* Color de fondo para el día seleccionado */
+  color: white !important; /* Color del texto para el día seleccionado */
+  border-radius: 50px;
+}
+
+.subtitle-15-color {
+  font-size: 15px;
+  color: #703cc5;
+  font-weight: bold;
+}
+
+.separar1 {
+  //top border
+  box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.3);
+  border-radius: 10px;
+  border-bottom: none;
+}
+
+.separar2 {
+  //bottom border
+  box-shadow: 0 0 4px 0 rgba(20, 20, 20, 0.3);
+  border-radius: 10px;
+}
+
+.btn-primary-calendar {
+  border: none;
+  background-color: transparent;
+  color: #703cc5;
+  font-size: 22px;
+  font-weight: 700;
+
+  &.std {
+    height: 54px;
+    width: 336px;
+    margin: 2px;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../../../../theme/layout.scss';
+
+.side-menu-container {
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  width: 300px;
+  height: $content-height;
+  z-index: 100;
+  background-color: aqua;
+}
+
+.shadow {
+  position: absolute;
+  top: $header-height;
+  left: 0;
+  width: 100vw;
+  height: $content-height;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 90;
+}

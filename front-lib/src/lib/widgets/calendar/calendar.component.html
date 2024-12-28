@@ -1,0 +1,31 @@
+<div class="options">
+  <div class="selection">
+    <div class="month">{{ months[selectedMonth] }}</div>
+    <div class="year">{{ selectedYear }}</div>
+  </div>
+
+  <div class="arrow-buttons">
+    <button (click)="previousMonth()">&lt;</button>
+    <button (click)="nextMonth()">&gt;</button>
+  </div>
+</div>
+
+<div class="day-labels">
+  @for (day of days; track day) {
+    <div class="day">{{ day }}</div>
+  }
+</div>
+
+<div class="weeks-container">
+  @for (week of selection; let idx = $index; track idx) {
+    <div class="week">
+      @for (day of week; let jdx = $index; track jdx) {
+        <div class="day" (click)="selectDay(day)">
+          <div class="text" [ngClass]="getDayClass(day)" >
+            {{ day.toLocaleDateString('en-US', { day: '2-digit' } ) }}
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
