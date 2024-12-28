@@ -37,6 +37,11 @@ export class SideMenuComponent implements OnInit, OnDestroy {
   isSideMenuOpen = true;
   userDetails: any;
 
+  userData = {
+    names: 'John Doe',
+    email: 'john@doe.com',
+  }
+
   constructor(
     private readonly sideMenuProvider: SideMenuProvider,
     // private readonly sessionProvider: SessionProvider,

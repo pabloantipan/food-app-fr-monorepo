@@ -1,5 +1,7 @@
 @import '../../../../theme/layout.scss';
 
+$personal-data-heigh: 250px;
+
 .side-menu-container {
   position: absolute;
   top: $header-height;
@@ -19,3 +21,18 @@
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 90;
 }
+
+.top {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.personal-data {
+  height: $personal-data-heigh;
+}
+
+.redirections {
+  height: calc(100% - $personal-data-heigh);
+
+}
+

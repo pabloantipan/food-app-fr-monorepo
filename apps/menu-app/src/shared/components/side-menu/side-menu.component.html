@@ -1,19 +1,25 @@
 @if(isSideMenuOpen) {
-  <div class="side-menu-container" @openClose>
+<div class="side-menu-container" @openClose>
+  <div class="top">
     <button (click)="closeMenu()"> close</button>
-    John Doe
-    <div class="side-menu">
-      <div class="side-menu-item">
-        <a href="/home">Home</a>
-      </div>
-      <div class="side-menu-item">
-        <a href="/about">About</a>
-      </div>
-      <div class="side-menu-item">
-        <a href="/contact">Contact</a>
-      </div>
+  </div>
+  <div class="redirections">
+    <div class="side-menu-item">
+      <a href="/home">Home</a>
+    </div>
+    <div class="side-menu-item">
+      <a href="/about">About</a>
+    </div>
+    <div class="side-menu-item">
+      <a href="/contact">Contact</a>
     </div>
   </div>
 
-  <div class="shadow" (click)="closeMenu()"></div>
+  <div class="personal-data">
+    <div class="names">{{userData.names}}</div>
+    <div class="email">{{userData.email}}</div>
+  </div>
+</div>
+
+<div class="shadow" tabindex="0" (click)="closeMenu()" (keydown)="closeMenu()"></div>
 }
