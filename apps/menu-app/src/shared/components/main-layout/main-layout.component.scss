@@ -15,6 +15,9 @@
 
 .header {
   width: $header-width;
+
+  display: flex;
+  justify-content: space-between;
 }
 
 .navigation-menu {}

@@ -29,7 +29,7 @@
         "@guards/*": [ "shared/guards/*" ],
         "@util": [ "shared/utils/utils.ts" ],
         "@utils/*": [ "shared/utils/*" ],
-        "@env": [ "environments/environment" ],
+        "@env": [ "src/environments/environment" ],
         "@app/*": [ "app/*" ],
         "@package": [ "../../../" ],
       }
