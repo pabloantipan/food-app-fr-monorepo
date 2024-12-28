@@ -1,0 +1,133 @@
+@import './colors.scss';
+@import './icons.scss';
+
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  font-family: Lato, "Helvetica Neue", sans-serif;
+  // height: 100%;
+  // width: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: Lato, "Helvetica Neue", sans-serif;
+}
+
+button {
+  border-radius: 8px;
+}
+
+.btn-primary {
+  border: none;
+  background-color: color(purple, 500);
+  color: color(pink, 50);
+  font-size: 14px;
+  font-weight: 700;
+
+  &.std {
+    height: 54px;
+    width: 336px;
+    margin: 2px;
+  }
+
+  &:hover {
+    background-color: color(purple, 400);
+    color: white;
+  }
+
+  &:active {
+    background-color: color(purple, 600);
+    color: white;
+  }
+
+  &.disabled {
+    background-color: color(purple, 300);
+    color: color(pink, 50);
+  }
+}
+
+.btn-secondary {
+  background-color: transparent;//color(white, main);
+  font-size: 14px;
+  font-weight: 700;
+  border: none;
+  color: color(purple, 500);
+
+  &.std {
+    height: 54px;
+    width: 336px;
+    margin: 2px;
+  }
+
+  &:hover {
+    background-color: color(white, 600);
+  }
+
+  &:active {
+    background-color: color(white, 700);
+  }
+
+  &.disabled {
+    background-color: #ccc;
+    color: white;
+  }
+}
+
+.input-field {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-items: flex-start;
+  height: 74px;
+
+  .field-primary {
+    border: none;
+    // border: 1px solid color(purple, 500);
+    outline: none;
+    color: color(grey, text_light);
+    border-radius: 4px;
+    height: 48px;
+    width: 336px;
+    margin: 2px;
+    padding: 0 8px;
+
+    &.touched {
+      color: color(black, 500);
+    }
+
+    &:focus {
+      border: none;
+      color: color(black, 500);
+      // border: 1px solid color(purple, 700);
+    }
+
+    &:active {
+      border: none;
+      color: color(black, 500);
+      // border: 1px solid color(purple, 700);
+    }
+
+    &.error {
+      border: 1px solid red;
+    }
+
+    &.disabled {
+      background-color: color(white, 600);
+      color: color(grey, text_light);
+    }
+  }
+
+  .error-label {
+    height: 14px;
+    color: red;
+    font-size: 12px;
+    margin: 4px 10px;
+    // margin-top: 4px;
+  }
+}
+

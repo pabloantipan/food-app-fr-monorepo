@@ -1,8 +1,15 @@
-/* You can add global styles to this file, and also import other style files */
+@import './theme/variables.scss';
+@import './theme/icons.scss';
+// @import './theme/colors.scss';
+@import './theme/mixins.scss';
+@import './theme/breakpoints.scss';
+@import './theme/layout.scss';
+
 html {
   margin: 0;
   padding: 0;
 }
+
 body {
   font-family: 'Roboto', sans-serif;
   margin: 0;

@@ -1,0 +1,73 @@
+@use "sass:map";
+
+$palettes: (
+  white: (
+    pure: #ffffff,
+    login: #F6F6FBCC,
+    main:  #F6F6FB,
+    600: #ececec,
+    700: #e1e1e1,
+    800: #d0d0d0,
+
+  ),
+  grey: (
+    text_light: #A9B1BF,
+  ),
+  black: (
+    pure: #000000,
+    500: #161616,
+    600: #333333,
+    700: #2c2c2c,
+    800: #262626,
+  ),
+  purple: (
+    50: #eee8f8,
+    100: #d4c5ee,
+    200: #b89ee2,
+    300: #9b77d6, // secondary color
+    400: #8559ce,
+    500: #703cc5, // original: #703CC5 // primary color
+    600: #6836bf,
+    700: #5d2eb8,
+    800: #5327b0,
+    900: #411aa3,
+    A100: #e3daff,
+    A200: #bda7ff,
+    A400: #9774ff,
+    A700: #845aff
+  ),
+  pink: (
+    50: #f8e8f7,
+    100: #eec5ec,
+    200: #e29edf,
+    300: #d677d2,
+    400: #ce59c9,
+    500: #c53cbf, // original: #c53cbf // accent color?
+    600: #bf36b9,
+    700: #b82eb1,
+    800: #b027a9,
+    900: #a31a9b,
+    A100: #ffdafd,
+    A200: #ffa7f9,
+    A400: #ff74f6,
+    A700: #ff5af4
+    ),
+);
+
+
+@function color($color, $tone) {
+  // @warn map.get($palettes, $color);
+  @if map-has-key($palettes, $color) {
+    $color: map-get($palettes, $color);
+
+    @if map-has-key($color, $tone) {
+      $tone: map-get($color, $tone);
+      @return $tone;
+    }
+    @warn "unknown tone `#{$tone}` in color";
+    @return null;
+  }
+  @warn "unknown color `#{$color}` in palette";
+  @return null;
+
+}
