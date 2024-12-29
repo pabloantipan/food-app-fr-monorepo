@@ -10,19 +10,50 @@
 
 [Click here to finish setting up your workspace!](https://cloud.nx.app/connect/HeTCY77H9L)
 
+## Dependencies
+
+#### Node 23
+
+#### Nx 20
 
 ## Run tasks
+
+### menu-app
 
 To run the dev server for your app, use:
 
 ```sh
-npx nx serve food-app-monorepo
+nx run menu-app:serve:local
 ```
 
 To create a production bundle:
 
 ```sh
-npx nx build food-app-monorepo
+nx run menu-app:serve:local
+```
+
+To see all available targets to run for a project, run:
+
+```sh
+npx nx show project food-app-monorepo
+```
+
+These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+
+[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+
+### cook-app
+
+To run the dev server for your app, use:
+
+```sh
+nx run cook-app:serve:local
+```
+
+To create a production bundle:
+
+```sh
+nx run cook-app:serve:local
 ```
 
 To see all available targets to run for a project, run:
