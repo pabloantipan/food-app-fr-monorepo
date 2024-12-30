@@ -120,14 +120,14 @@ button {
       background-color: color(white, 600);
       color: color(grey, text_light);
     }
-  }
 
-  .error-label {
-    height: 14px;
-    color: red;
-    font-size: 12px;
-    margin: 4px 10px;
-    // margin-top: 4px;
   }
 }
 
+.error-label {
+  height: 14px;
+  color: red;
+  font-size: 12px;
+  margin: 4px 10px;
+  // margin-top: 4px;
+}

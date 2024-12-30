@@ -1,12 +1,30 @@
 <div class="main-container">
-  <div class="input-field">
-    <input type="email" class="field-primary email" placeholder="Username" />
+  <div [formGroup]="form" class="form">
+    <div class="input-field">
+      <input type="email" class="field-primary email" formControlName="email" placeholder="Email"
+        (blur)="updateEmailErrorMessage()" />
+      @if (passwordFormControl.invalid) {
+      <div class="error-label">{{ emailErrorMessage() }}</div>
+      }
+    </div>
+    <div class="input-field">
+      <input type="password" class="field-primary password" formControlName="password" placeholder="Password"
+        (blur)="updatePasswordErrorMessage()" />
+      @if (passwordFormControl.invalid) {
+      <div class="error-label">{{ passwordErrorMessage() }}</div>
+      }
+    </div>
+    <div class="input-field">
+      <input type="password" class="field-primary password" formControlName="passwordTwice" placeholder="Password"
+        (blur)="updatePasswordTwiceErrorMessage()" />
+      @if (passwordFormControl.invalid) {
+      <div class="error-label">{{ passwordTwiceErrorMessage() }}</div>
+      }
+    </div>
+    <button type="button" class="btn-primary std sign-up" [disabled]="signUpButtonDisabled"
+      [ngClass]="{'disabled': registerButtonDisabled}">Registrar</button>
   </div>
-  <div class="input-field">
-    <input type="password" class="field-primary password" placeholder="Password" />
+  <div class="not-mach-error">
+    <div class="error-label">{{ passwordDontMachErrorMessage() }}</div>
   </div>
-  <div class="input-field">
-    <input type="password" class="field-primary password" placeholder="Password" />
-  </div>
-  <button type="button" class="btn-primary std sign-up">Registrar</button>
 </div>
