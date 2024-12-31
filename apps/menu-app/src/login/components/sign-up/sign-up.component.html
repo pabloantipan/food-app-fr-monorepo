@@ -21,7 +21,7 @@
       <div class="error-label">{{ passwordTwiceErrorMessage() }}</div>
       }
     </div>
-    <button type="button" class="btn-primary std sign-up" [disabled]="signUpButtonDisabled"
+    <button type="button" class="btn-primary std sign-up" [disabled]="signUpButtonDisabled" (click)="signUp()"
       [ngClass]="{'disabled': signUpButtonDisabled}">Registrar</button>
   </div>
   <div class="not-mach-error">

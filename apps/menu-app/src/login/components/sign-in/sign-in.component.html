@@ -14,7 +14,7 @@
       <div class="error-label">{{ passwordErrorMessage() }}</div>
       }
     </div>
-    <button type="button" class="btn-primary std sign-up" [disabled]="signUpButtonDisabled"
+    <button type="button" class="btn-primary std sign-up" [disabled]="signUpButtonDisabled" (click)="signIn()"
       [ngClass]="{'disabled': signUpButtonDisabled}">Ingresar</button>
 
     <div class="forgot-password">

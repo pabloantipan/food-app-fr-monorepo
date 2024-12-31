@@ -3,7 +3,7 @@ import { Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { RouterModule } from '@angular/router';
-import { Session } from 'login/providers/session.provider';
+import { Session, SessionProvider } from 'login/providers/session.provider';
 import { merge } from 'rxjs';
 
 @Component({
@@ -35,7 +35,9 @@ export class SignUpComponent {
   passwordDontMachErrorMessage = signal('');
   signUpAuthErrorMessage = signal('');
 
-  constructor() {
+  constructor(
+    private readonly sessionProvider: SessionProvider,
+  ) {
     this.showEmailValidationErrorMessage();
     this.subscribePasswordValidation();
     this.subscribeSignUpButtonDisabled();
@@ -45,6 +47,12 @@ export class SignUpComponent {
 
     this.subscribePasswordDontMachValidation();
     this.subscribeSignUpButtonDisabled();
+  }
+
+  public signUp() {
+    const { email, password } = this.form.getRawValue();
+    // this.showSpinner = true;
+    this.sessionProvider.signUp(email ?? '', password ?? '');
   }
 
   public updateEmailErrorMessage() {

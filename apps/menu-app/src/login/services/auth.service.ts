@@ -18,6 +18,7 @@ export class AuthService {
 
   public async signIn(email: string, password: string): Promise<UserCredential> {
     return signInWithEmailAndPassword(this.auth, email, password).then((userCredential) => {
+      console.log('userCredential', userCredential);
       return userCredential;
     });
   }
