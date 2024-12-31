@@ -17,7 +17,6 @@ import { merge } from 'rxjs';
   styleUrls: ['./sign-up.component.scss'],
 })
 export class SignUpComponent {
-  registerButtonDisabled = true;
   signUpButtonDisabled = true;
 
   form = new FormGroup({
@@ -39,7 +38,7 @@ export class SignUpComponent {
   constructor() {
     this.showEmailValidationErrorMessage();
     this.subscribePasswordValidation();
-    this.subscribeRegisterButtonDisabled();
+    this.subscribeSignUpButtonDisabled();
 
     this.subscribePasswordOnceValidation();
     this.subscribePasswordTwiceValidation();
@@ -109,7 +108,7 @@ export class SignUpComponent {
       });
   }
 
-  private subscribeRegisterButtonDisabled() {
+  private subscribeSignUpButtonDisabled() {
     merge(
       this.emailFormControl.valueChanges,
       this.passwordFormControl.valueChanges,
@@ -118,7 +117,7 @@ export class SignUpComponent {
       .pipe(takeUntilDestroyed())
       .subscribe({
         next: () => {
-          this.registerButtonDisabled = this.emailFormControl.valid
+          this.signUpButtonDisabled = this.emailFormControl.valid
             && this.passwordFormControl.valid
             && this.passwordTwiceFormControl.valid
             && this.passwordFormControl.value === this.passwordTwiceFormControl.value
@@ -157,24 +156,6 @@ export class SignUpComponent {
     ).pipe(takeUntilDestroyed())
       .subscribe({
         next: () => this.updatePasswordDontMachErrorMessage(),
-        error: (error: any) => console.error(error),
-      });
-  }
-
-  private subscribeSignUpButtonDisabled() {
-    merge(
-      this.emailFormControl.statusChanges,
-      this.passwordFormControl.statusChanges,
-      this.passwordTwiceFormControl.statusChanges,
-    ).pipe(takeUntilDestroyed())
-      .subscribe({
-        next: () => {
-          this.signUpButtonDisabled = !(
-            this.emailFormControl.valid
-            && this.passwordFormControl.valid
-            && this.passwordTwiceFormControl.valid
-          );
-        },
         error: (error: any) => console.error(error),
       });
   }
