@@ -1,0 +1,12 @@
+<div class="bucket-container">
+  @for (notification of notifications; track notification) {
+    <div class="notification-container" [ngClass]="this.getRenderingClassCallback(notification.id) ? 'appears' : '' ">
+      <div class="notification" [ngClass]="getNotificationTypeClass(notification.type)">
+        <div class="message">
+          {{ notification.message }}
+        </div>
+        <div class="close" (click)="dismiss(notification.id)">Close</div>
+      </div>
+    </div>
+  }
+</div>

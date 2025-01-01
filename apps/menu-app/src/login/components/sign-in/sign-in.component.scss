@@ -1,4 +1,4 @@
-@import '../../../theme/colors.scss';
+@use '../../../theme/colors.scss';
 
 .main-container {
   display: flex;
@@ -14,7 +14,7 @@
 
   gap: 12px;
 
-  background-color: color(purple, A100);
+  background-color: colors.get-color(purple, A100);
 }
 
 .email {

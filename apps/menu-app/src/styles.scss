@@ -1,9 +1,9 @@
-@import './theme/variables.scss';
-@import './theme/icons.scss';
-@import './theme/colors.scss';
-@import './theme/mixins.scss';
-@import './theme/breakpoints.scss';
-@import './theme/layout.scss';
+@use './theme/variables.scss';
+@use './theme/icons.scss';
+@use './theme/colors.scss';
+@use './theme/mixins.scss';
+@use './theme/breakpoints.scss';
+@use './theme/layout.scss';
 
 html {
   margin: 0;

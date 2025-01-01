@@ -1,1 +1,1 @@
-export * from './lib/front-lib/front-lib.component';
+// export * from './lib/front-lib/front-lib.component';

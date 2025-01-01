@@ -1,5 +1,5 @@
 
-@import '../../../theme/layout.scss';
+@use '../../../theme/layout.scss';
 
 .main-layout-container {
   // width: 95%;
@@ -9,12 +9,12 @@
   flex-direction: column;
   justify-content: space-between;
 
-  width: $wrapper-width;
-  height: $wrapper-height;
+  width: layout.$wrapper-width;
+  height: layout.$wrapper-height;
 }
 
 .header {
-  width: $header-width;
+  width: layout.$header-width;
 
   display: flex;
   justify-content: space-between;
@@ -23,8 +23,8 @@
 .navigation-menu {}
 
 .content {
-  width: $content-width;
-  height: $content-height;
+  width: layout.$content-width;
+  height: layout.$content-height;
 
   display: flex;
   flex-direction: column;
@@ -34,7 +34,7 @@
 }
 
 .footer {
-  width: $footer-width;
+  width: layout.$footer-width;
 }
 
 // Small devices (landscape phones, 576px and up)

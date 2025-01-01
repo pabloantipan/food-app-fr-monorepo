@@ -15,7 +15,9 @@
     "@angular/platform-browser-dynamic": "~19.0.0",
     "@angular/router": "~19.0.0",
     "firebase": "^11.1.0",
+    "lodash": "^4.17.21",
     "rxjs": "~7.8.0",
+    "uuid": "^11.0.3",
     "zone.js": "~0.15.0"
   },
   "devDependencies": {
@@ -41,7 +43,9 @@
     "@swc/core": "~1.5.7",
     "@swc/helpers": "~0.5.11",
     "@types/jest": "^29.5.12",
+    "@types/lodash": "^4.17.13",
     "@types/node": "18.16.9",
+    "@types/uuid": "^10.0.0",
     "@typescript-eslint/utils": "^8.13.0",
     "angular-eslint": "^19.0.2",
     "eslint": "^9.8.0",

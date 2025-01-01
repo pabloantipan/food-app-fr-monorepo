@@ -55,13 +55,13 @@ $palettes: (
 );
 
 
-@function color($color, $tone) {
+@function get-color($color, $tone) {
   // @warn map.get($palettes, $color);
-  @if map-has-key($palettes, $color) {
-    $color: map-get($palettes, $color);
+  @if map.has-key($palettes, $color) {
+    $color: map.get($palettes, $color);
 
-    @if map-has-key($color, $tone) {
-      $tone: map-get($color, $tone);
+    @if map.has-key($color, $tone) {
+      $tone: map.get($color, $tone);
       @return $tone;
     }
     @warn "unknown tone `#{$tone}` in color";
