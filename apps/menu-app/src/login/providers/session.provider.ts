@@ -1,28 +1,9 @@
 import { inject, Injectable } from '@angular/core';
 import { Auth, authState, idToken } from '@angular/fire/auth';
 import { VaultKeyProvider } from '@providers/vault-key/vault-key.provider';
+import { DEFAULT_SESSION, Session, SessionStatus } from 'login/interfaces/auth.interfaces';
 import { AuthService } from 'login/services/auth.service';
 import { BehaviorSubject } from 'rxjs';
-
-export type SessionStatus = 'never' | 'alive' | 'terminated';
-
-export interface Session {
-  uid: string;
-  email: string;
-  displayName: string,
-  token: string;
-  idToken?: string;
-  status: SessionStatus;
-}
-
-export const DEFAULT_SESSION: Session = {
-  uid: '',
-  email: '',
-  displayName: '',
-  token: '',
-  idToken: '',
-  status: 'never',
-};
 
 @Injectable({ providedIn: 'root' })
 export class SessionProvider {

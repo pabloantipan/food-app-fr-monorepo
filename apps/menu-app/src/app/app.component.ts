@@ -3,6 +3,7 @@ import { RouterModule } from '@angular/router';
 import { MainLayoutComponent } from '../shared/components/main-layout/main-layout.component';
 
 @Component({
+  standalone: true,
   imports: [
     RouterModule,
     MainLayoutComponent,

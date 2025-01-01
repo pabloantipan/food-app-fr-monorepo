@@ -9,4 +9,8 @@ export const appRoutes: Route[] = [
     path: 'welcome',
     loadComponent: () => import('../login/login.page').then(m => m.LoginPageComponent),
   },
+  {
+    path: 'login',
+    loadChildren: () => import('../login/login.routes').then(r => r.loginRoutes),
+  },
 ];

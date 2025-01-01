@@ -2,7 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { Session, SessionProvider } from 'login/providers/session.provider';
+import { Session } from 'login/interfaces/auth.interfaces';
+import { SessionProvider } from 'login/providers/session.provider';
 import { merge } from 'rxjs';
 
 @Component({
