@@ -49,7 +49,7 @@ export class SignInComponent {
 
   public updateEmailErrorMessage() {
     if (this.emailFormControl.hasError('required')) {
-      return this.emailErrorMessage.set('Por favor ingresa tu correo Office365');
+      return this.emailErrorMessage.set('Por favor ingresa tu correo valido');
     }
     if (this.emailFormControl.hasError('email')) {
       return this.emailErrorMessage.set('Ingresa un correo válido');
