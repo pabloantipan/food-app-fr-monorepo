@@ -1,4 +1,3 @@
-notification
 <div class="bucket-container">
   @for (notification of notifications; track notification) {
     <div class="notification-container" [ngClass]="this.getRenderingClassCallback(notification.id) ? 'appears' : '' ">
@@ -11,4 +10,3 @@ notification
     </div>
   }
 </div>
-{{ notifications | json }}

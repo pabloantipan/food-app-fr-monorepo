@@ -32,6 +32,7 @@
         "@utils/*": [ "shared/utils/*" ],
         "@env": [ "src/environments/environment" ],
         "@app/*": [ "app/*" ],
+        "@widgets/*": [ "shared/widgets/*" ],
         "@package": [ "../../../" ],
       }
   },

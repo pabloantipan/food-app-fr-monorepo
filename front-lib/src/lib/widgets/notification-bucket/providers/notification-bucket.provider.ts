@@ -3,9 +3,7 @@ import { BehaviorSubject, Subject } from 'rxjs';
 import { v4 as uuid } from 'uuid';
 import { Notification, NotificationPayload, NotificationType } from '../interfaces/notification-bucket.interfaces';
 
-@Injectable(
-  { providedIn: 'root' }
-)
+@Injectable({ providedIn: 'root' })
 export class NotificationBucketProvider {
   private _notifications: NotificationPayload[] = [];
   private _notificationsSubject = new Subject<NotificationPayload[]>();
@@ -14,11 +12,8 @@ export class NotificationBucketProvider {
     new BehaviorSubject<NotificationPayload>({} as NotificationPayload);
 
   constructor() {
-    console.log('NotificationBucketProvider', new Date());
     this._incomingNotificationSubject.subscribe((notification) => {
-      console.log('NotificationBucketProvider 1', notification);
       if (!notification.id) {
-        // console.error('Notification id is required');
         return;
       }
 

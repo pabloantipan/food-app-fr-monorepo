@@ -1,5 +1,4 @@
 import { Route } from '@angular/router';
-import { AliveSessionGuard } from './guards/alive-session.guard';
 
 
 export const loginRoutes: Route[] = [
@@ -23,7 +22,7 @@ export const loginRoutes: Route[] = [
       {
         path: 'welcome',
         loadComponent: () => import('./components/welcome/welcome.component').then(m => m.WelcomeComponent),
-        canActivate: [AliveSessionGuard],
+        // canActivate: [AliveSessionGuard],
       },
     ],
   },

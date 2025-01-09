@@ -5,7 +5,6 @@ import { provideAuth } from '@angular/fire/auth';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideRouter } from '@angular/router';
-import { NotificationBucketModule } from '@front-lib';
 import { environment } from 'environments/environment.dev';
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
@@ -14,7 +13,8 @@ import { appRoutes } from './app.routes';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    NotificationBucketModule,
+    // NotificationBucketProvider,
+    // NotificationBucketModule,
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(appRoutes),
     importProvidersFrom([BrowserAnimationsModule]),

@@ -7,7 +7,7 @@ import { NotificationBucketProvider } from './providers/notification-bucket.prov
 
 @Component({
   // eslint-disable-next-line @angular-eslint/component-selector
-  selector: 'app-notification-bucket',
+  selector: 'lib-notification-bucket',
   // eslint-disable-next-line @angular-eslint/prefer-standalone
   standalone: true,
   imports: [
@@ -17,32 +17,29 @@ import { NotificationBucketProvider } from './providers/notification-bucket.prov
   styleUrl: './notification-bucket.component.scss'
 })
 export class NotificationBucketComponent {
-  notifications: NotificationPayload[] = [];
-
-  notificationRenderings: { [key: string]: boolean } = {};
-  notificationPromisesForTriggerRendering: { [key: string]: Promise<boolean> } = {};
+  private _notifications: NotificationPayload[] = [];
+  public get notifications() { return this._notifications; }
+  private _notificationRenderings: { [key: string]: boolean } = {};
+  private _notificationPromisesForTriggerRendering: { [key: string]: Promise<boolean> } = {};
 
   constructor(
     private readonly _notificationProvider: NotificationBucketProvider,
   ) {
-    console.log('NotificationBucketComponent');
     this._notificationProvider.observeAllNotifications()
       .subscribe({
         next: (notifications) => {
-          console.log('notifications 3', notifications);
-
-          const lastNotification = this.getLastNotification(this.notifications, notifications);
+          const lastNotification = this.getLastNotification(this._notifications, notifications);
           if (lastNotification[0]) {
-            this.notificationRenderings[lastNotification[0].id] = false;
-            this.notificationPromisesForTriggerRendering[lastNotification[0].id] =
+            this._notificationRenderings[lastNotification[0].id] = false;
+            this._notificationPromisesForTriggerRendering[lastNotification[0].id] =
               new Promise((resolve) => {
                 setTimeout(() => {
-                  this.notificationRenderings[lastNotification[0].id] = true;
+                  this._notificationRenderings[lastNotification[0].id] = true;
                   resolve(true);
                 }, 100);
               });
           }
-          this.notifications = [...notifications];
+          this._notifications = [...notifications];
         },
         error: (error) => {
           console.error('Error in NotificationBucketComponent', error);
@@ -52,7 +49,6 @@ export class NotificationBucketComponent {
         },
       });
   }
-
 
   dismiss(id: string) {
     this._notificationProvider.removeNotification(id);
@@ -74,11 +70,11 @@ export class NotificationBucketComponent {
   }
 
   public getRenderingClassCallback(id: string) {
-    return this.notificationRenderings[id];
+    return this._notificationRenderings[id];
   }
 
   private findNotificationById(id: string) {
-    return this.notifications.find((notification) => notification.id === id);
+    return this._notifications.find((notification) => notification.id === id);
   }
 
   private getLastNotification(previousNotifications: NotificationPayload[], currentNotifications: NotificationPayload[]) {

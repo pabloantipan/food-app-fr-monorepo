@@ -18,12 +18,5 @@ import { SideMenuComponent } from '../side-menu/side-menu.component';
 export class MainLayoutComponent {
   constructor(
     private notificationProvider: NotificationBucketProvider,
-  ) {
-    this.notificationProvider.addNotification({
-      message: 'Hello, success!',
-      type: 'success',
-      permanent: true
-
-    });
-  }
+  ) { }
 }
