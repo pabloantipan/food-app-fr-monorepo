@@ -1,4 +1,4 @@
-@import '../../../theme/colors.scss';
+@use '../../../theme/colors.scss';
 
 :host {
   position: absolute;
@@ -60,8 +60,8 @@
 
 /* Option 1 */
 .type {
-  color: color(black, 700);
-  background-color: color(white, pure);
+  color: colors.get-color(black, 700);
+  background-color: colors.get-color(white, pure);
   -webkit-box-shadow: 3px 9px 22px 0px rgba(8,8,8,0.36);
   -moz-box-shadow: 3px 9px 22px 0px rgba(8,8,8,0.36);
   box-shadow: 3px 9px 22px 0px rgba(8,8,8,0.36);

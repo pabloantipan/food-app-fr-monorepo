@@ -1,41 +1,28 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { v4 as uuid } from 'uuid';
+import { Notification, NotificationPayload, NotificationType } from '../interfaces/notification-bucket.interfaces';
 
-export type ZnNotificationType = 'success' | 'error' | 'info' | 'warning';
-
-export interface ZnIncomingNotification {
-  id: string;
-  message: string;
-  type: ZnNotificationType;
-  liveSpanSec?: number;
-  permanent?: boolean;
-}
-
-export interface ZnNotification {
-  id: string;
-  message: string;
-  type: ZnNotificationType;
-  selfDestructionCallback: void | null;
-  // selfRenderingCallback: (variableToUpdate: any) => Promise<boolean>;
-}
-
-
-@Injectable({ providedIn: 'root' })
-export class ZnNotificationBucketProvider {
-  private _notifications: ZnNotification[] = [];
-  private _notificationsSubject = new Subject<ZnNotification[]>();
-  private _incomingNotificationSubject = new Subject<ZnIncomingNotification>();
+@Injectable(
+  { providedIn: 'root' }
+)
+export class NotificationBucketProvider {
+  private _notifications: NotificationPayload[] = [];
+  private _notificationsSubject = new Subject<NotificationPayload[]>();
+  private _incomingNotificationSubject = new Subject<Notification>();
   private _incomingNotificationSubjectForPropagation =
-    new BehaviorSubject<ZnNotification>({} as ZnNotification);
+    new BehaviorSubject<NotificationPayload>({} as NotificationPayload);
 
   constructor() {
+    console.log('NotificationBucketProvider', new Date());
     this._incomingNotificationSubject.subscribe((notification) => {
+      console.log('NotificationBucketProvider 1', notification);
       if (!notification.id) {
+        // console.error('Notification id is required');
         return;
       }
 
-      const newNotification: ZnNotification = {
+      const newNotification: NotificationPayload = {
         id: notification.id,
         message: notification.message,
         type: notification.type,
@@ -59,7 +46,7 @@ export class ZnNotificationBucketProvider {
 
   public addNotification(payload: {
     message: string,
-    type: ZnNotificationType,
+    type: NotificationType,
     liveSpanSec?: number,
     permanent?: boolean,
   }) {
@@ -87,7 +74,7 @@ export class ZnNotificationBucketProvider {
     return this._notifications.find((notification) => notification.id === id);
   }
 
-  public updateNotification(id: string, message: string, type: ZnNotificationType) {
+  public updateNotification(id: string, message: string, type: NotificationType) {
     const notification = this.getNotification(id);
     if (notification) {
       notification.message = message;

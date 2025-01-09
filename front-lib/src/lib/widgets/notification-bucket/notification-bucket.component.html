@@ -1,3 +1,4 @@
+notification
 <div class="bucket-container">
   @for (notification of notifications; track notification) {
     <div class="notification-container" [ngClass]="this.getRenderingClassCallback(notification.id) ? 'appears' : '' ">
@@ -5,8 +6,9 @@
         <div class="message">
           {{ notification.message }}
         </div>
-        <div class="close" (click)="dismiss(notification.id)">Close</div>
+        <div class="close" tabindex="0" (click)="dismiss(notification.id)" (keydown.enter)="dismiss(notification.id)" (keydown.space)="dismiss(notification.id)">Close</div>
       </div>
     </div>
   }
 </div>
+{{ notifications | json }}
